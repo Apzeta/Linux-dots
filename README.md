@@ -20,6 +20,13 @@ Grub config set up or change
     
 An make a backup of the files then change them with one's clone
 
+Then update grub
+---------------------------------------------------------------
+ 
+ sudo grub-mkconfig -o /boot/grub/grub.cfg
+ 
+ sudo update-grub
+
 ----------------------------------------------------------------
 
 Neofetch set up change
