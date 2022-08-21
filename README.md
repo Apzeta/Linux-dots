@@ -19,10 +19,10 @@ Grub config set up or change
     cd /boot/grub
     
 An make a backup of the files then change them with one's clone
+
 ----------------------------------------------------------------
 
 Neofetch set up change
-
 -------------------------------------------------------------------------
 
 cd .config/neofetch
@@ -60,5 +60,7 @@ emgerge neofetch
 Fedora
 
 --------------------
+
 dnf install neofetch
+
 --------------------
