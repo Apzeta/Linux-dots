@@ -1,21 +1,21 @@
 #!/bin/bash
 
-# Install dependencies
+# Download the latest version of Flutter from the official website
+wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.8.1-stable.tar.xz
+
+# Extract the downloaded archive to the /opt directory
+sudo tar xf flutter_linux_2.8.1-stable.tar.xz -C /opt
+
+# Add the Flutter binary path to the system path
+echo 'export PATH="$PATH:/opt/flutter/bin"' >> ~/.bashrc
+source ~/.bashrc
+
+# Install additional dependencies
 sudo apt-get update
 sudo apt-get install -y curl git unzip xz-utils zip libglu1-mesa
 
-# Download and extract Flutter SDK
-FLUTTER_VERSION="2.10.2" # Change to the latest version available
-FLUTTER_DOWNLOAD_URL="https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}-stable.tar.xz"
-curl -L -O "${FLUTTER_DOWNLOAD_URL}"
-tar xf "flutter_linux_${FLUTTER_VERSION}-stable.tar.xz"
-rm "flutter_linux_${FLUTTER_VERSION}-stable.tar.xz"
-export PATH="$PATH:`pwd`/flutter/bin"
+# Accept the Android licenses
+flutter doctor --android-licenses
 
-# Add Flutter to the path permanently
-echo 'export PATH="$PATH:`pwd`/flutter/bin"' >> ~/.bashrc
-source ~/.bashrc
-
-# Run Flutter doctor to check for any issues
+# Verify the installation
 flutter doctor
-
